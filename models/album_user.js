@@ -1,28 +1,21 @@
 const db = require('../database')
 
-exports.get = (albumId, userEmail) => {
-  return albums_users.find((album_user) => {
-    return album_user.albumId == albumId && album_user.userEmail == userEmail;
-  });
+exports.get = async (albumId, userId) => {
+  const result = await db.getPool()
+    .query("SELECT * FROM albums_users WHERE album_id = $1 AND user_id = $2", [albumId, userId]);
+  return db.camelize(result.rows)[0];
 }
 
-exports.add = (album_user) => {
-  albums_users.push(album_user);
-}
-
-exports.update = (idx, album_user) => {
-  books_users[idx] = album_user;
-}
-
-exports.upsert = (album_user) => {
-  let idx = albums_users.findIndex((au) => {
-    return au.albumId == album_user.albumId &&
-           au.userEmail == album_user.userEmail;
-  });
-  if (idx == -1) {
-    exports.add(book_user);
+exports.upsert = async (albumId, userId, listened) => {
+  const existing = await this.get(albumId, userId);
+  if (existing) {
+    await db.getPool()
+      .query("UPDATE albums_users SET listened = $1 WHERE album_id = $2 AND user_id = $3",
+        [listened, albumId, userId]);
   } else {
-    exports.update(idx,book_user);
+    await db.getPool()
+      .query("INSERT INTO albums_users (album_id, user_id, listened) VALUES ($1, $2, $3)",
+        [albumId, userId, listened]);
   }
 }
 

@@ -14,8 +14,15 @@ router.get('/show/:id', async (req, res, next) => {
     title: 'DiscoCheck',
     artist: await Artist.get(req.params.id),
     artistId: req.params.id,
+    user: req.session.currentUser,
   }
   templateVars.artist.albums = await Album.allForArtist(templateVars.artist);
+  if (req.session.currentUser) {
+    for (let album of templateVars.artist.albums) {
+      const albumUser = await AlbumUser.get(album.id, req.session.currentUser.id);
+      album.listened = albumUser ? albumUser.listened : false;
+    }
+  }
   res.render('artists/show', templateVars);
 });
 module.exports = router;

@@ -5,10 +5,14 @@
 <p>
 {{#each artist.albums}}
 <div>
-  <form action="/books_users/upsert" role="form" method="post">
-    <input type="hidden" name="_csrf" value="{{_csrfToken}}">
-    <input type="hidden" name="listened" value="false">
-    <input type="checkbox" name="listened" value="true">
+{{#if ../user}}
+  <form action="/albums_users/upsert" role="form" method="post">
+    <input type="hidden" name="_csrf" value="{{../_csrfToken}}">
+    <input type="hidden" name="album_id" value="{{this.id}}">
+    <input type="hidden" name="user_id" value="{{../user.id}}">
+    <input type="hidden" name="artist_id" value="{{../artistId}}">
+    <input type="checkbox" name="listened" value="true" {{#if this.listened}}checked{{/if}} onchange="this.form.submit()">
+  {{/if}}
 </form>
 </div>
 <img src={{this.albumArt}} width="150" height="150">
