@@ -1,0 +1,14 @@
+<body>
+<h1>DISCOCHECK</h1>
+<h2>ARTISTS</h2>
+{{#each artists}}
+<li>
+  <a href="/artists/show/{{this.id}}">{{this.name}}</a>
+</li>
+{{/each}}
+<br>
+<button onclick="window.location.href='mailto:tcapo@pratt.edu';">
+  Request A New Artist
+</button>
+<br>
+</body>

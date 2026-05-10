@@ -1,0 +1,32 @@
+<form action="/albums/create" role="form" method="post">
+  <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+  <div>
+    <label for="artist_id">Artist ID</label>
+    <input type="text" id="artist_id" name="artistId">
+  </div>
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title">
+  </div>
+  <div>  
+    <label for="release_date">Release Date</label>
+    <input type="text" id="release_date" name="releaseDate">
+  </div>
+  <div>
+    <label for="type">Type</label>
+    <input type="text" id="type" name="type">
+  </div>
+  <div>
+    <label for="a_stream_link">Apple Music Link</label>
+    <input type="text" id="a_stream_link" name="aStreamLink">
+  </div>
+  <div>
+    <label for="s_stream_link">Spotify Link</label>
+    <input type="text" id="s_stream_link" name="sStreamLink">
+  </div>
+  <div>
+    <label for="artist_id">Album Art</label>
+    <input type="text" id="album_art" name="albumArt">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

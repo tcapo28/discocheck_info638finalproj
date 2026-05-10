@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    {{{body}}}
+{{#if currentUser}}
+  <li>
+    <form action="/users/logout" role="form" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+      <button type="submit" class="btn">Logout</button>
+    </form>
+  </li>
+{{else}}
+  <li>
+    <a href="/users/register">REGISTER</a>
+  </li>
+  <li>
+    <a href="/users/login">OR LOG IN</a>
+  </li>
+{{/if}}
+  </body>
+</html>
