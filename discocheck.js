@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const albumsRouter = require('./routes/albums');
 const artistsRouter = require('./routes/artists');
 const albumsUsersRouter = require('./routes/albums_users');
+const path = require('path');
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -41,6 +42,8 @@ app.use((req, res, next) => {
   next()
 });
 
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);

@@ -1,12 +1,17 @@
+<body>
+<div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
 <form action="/users/login" role="form" method="post">
   <input type="hidden" name="_csrf" value="{{_csrfToken}}">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email">
+    <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-control">
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" class="form-control">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<h3><a href="/users/register">OR REGISTER INSTEAD</a></h3>
+</div></body>

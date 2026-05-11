@@ -1,16 +1,19 @@
-<form action="/users/register" role="form" method="post">
+<body>
+  <div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
+  <form action="/users/register" role="form" method="post">
   <input type="hidden" name="_csrf" value="{{_csrfToken}}">
-  <div>
+  <div class="mb-3">
     <label for="name">Name</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="name" class="form-control">
   </div>
-  <div>
+  <div class="mb-3">
     <label for="email">Email</label>
-    <input type="email" id="email" name="email">
+    <input type="email" id="email" name="email" class="form-control">
   </div>
-  <div>
+    <div class="mb-3">
     <label for="password">Password</label>
-    <input type="password" id="password" name="password">
+    <input type="password" id="password" name="password" class="form-control">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</body>

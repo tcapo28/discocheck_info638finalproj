@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DISCOCHECK</title>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+  </head>
   <body>
-    {{{body}}}
+    <div></div>
+    <div class="container">
+      {{{body}}}
+    </div>
 {{#if currentUser}}
-  <li>
-    <form action="/users/logout" role="form" method="post">
+    <div class="text-center">
+    <br><br><form action="/users/logout" role="form" method="post">
     <input type="hidden" name="_csrf" value="{{_csrfToken}}">
-      <button type="submit" class="btn">Logout</button>
+      <button type="submit" class="btn btn-primary">Logout</button>
     </form>
-  </li>
-{{else}}
-  <li>
-    <a href="/users/register">REGISTER</a>
-  </li>
-  <li>
-    <a href="/users/login">OR LOG IN</a>
-  </li>
+    </div>
 {{/if}}
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

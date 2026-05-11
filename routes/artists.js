@@ -17,6 +17,9 @@ router.get('/show/:id', async (req, res, next) => {
     user: req.session.currentUser,
   }
   templateVars.artist.albums = await Album.allForArtist(templateVars.artist);
+  for (let album of templateVars.artist.albums) {
+    album.releaseDate = album.releaseDate.toISOString().slice(0,10);
+  }
   if (req.session.currentUser) {
     for (let album of templateVars.artist.albums) {
       const albumUser = await AlbumUser.get(album.id, req.session.currentUser.id);

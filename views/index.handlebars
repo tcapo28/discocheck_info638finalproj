@@ -1,9 +1,15 @@
 <body>
-  <h1>DISCOCHECK</h1>
+
   {{#if currentUser}}
-  <li>
-  <a href="/artists">SEE LIST OF ARTISTS</a>
-  </li>
+  <div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
+  <h3><a href="/artists">SEE LIST OF ARTISTS</a></h3>
+  </div>
+  {{else}}
+  <div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
+  <h1><a href="/users/register">REGISTER</a>
+  OR
+  <a href="/users/login">LOG IN</a>
+  </h1>
   {{/if}}
-</p>
+</div>
 </body>

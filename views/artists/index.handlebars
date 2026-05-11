@@ -1,14 +1,12 @@
 <body>
-<h1>DISCOCHECK</h1>
-<h2>ARTISTS</h2>
+<div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
 {{#each artists}}
-<li>
-  <a href="/artists/show/{{this.id}}">{{this.name}}</a>
-</li>
+
+<h3><a href="/artists/show/{{this.id}}">{{this.name}}</a><br></h3>
 {{/each}}
 <br>
-<button onclick="window.location.href='mailto:tcapo@pratt.edu';">
+<button onclick="window.location.href='mailto:tcapo@pratt.edu';" class="btn btn-primary">
   Request A New Artist
 </button>
 <br>
-</body>
+</div></body>
