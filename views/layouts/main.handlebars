@@ -13,7 +13,13 @@
     </div>
 {{#if currentUser}}
     <div class="text-center">
-    <br><br><form action="/users/logout" role="form" method="post">
+    <br><br><form action="/artists" role="form" method="get">
+    <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+      <button type="submit" class="btn btn-primary">Home</button>
+    </form>
+    <br>
+    <br>
+    <form action="/users/logout" role="form" method="post">
     <input type="hidden" name="_csrf" value="{{_csrfToken}}">
       <button type="submit" class="btn btn-primary">Logout</button>
     </form>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <img src="/images/qlogo.png" class="rounded float-end" width="15%" alt="logo">
+<img src="/images/qlogo.png" class="rounded float-end" width="15%" alt="logo">
 <h1>{{artist.name}}</h1>
 
 {{#if artist.albums}}
@@ -37,24 +37,12 @@
           <a href={{this.aStreamLink}}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Apple_Music_Icon.svg/1280px-Apple_Music_Icon.svg.png" style="width:20px;height:20px;"></a>
           <a href={{this.sStreamLink}}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1280px-Spotify_icon.svg.png" style="width:20px;height:20px;"></a>
     </div>
-
-
-
-
-
-
-
 {{/each}}
 {{/if}}
-<br>
-  <li>
-    <a href="/albums/form">MISSING OR NEW RELEASE?</a>
-  </li>
-<br>
-  <li>
-    <a href="/artists">HOME</a>
-  </li>
-<br>
-
+<br><br>
+<form action="/albums/form" role="form" method="get">
+    <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+      <button type="submit" class="btn btn-primary">MISSING OR NEW RELEASE?</button>
+    </form>
 <br>
 </body>
