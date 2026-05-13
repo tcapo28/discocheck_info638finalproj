@@ -1,12 +1,11 @@
 <body>
-<div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
-{{#each artists}}
+  <div class="text-center"><img src="/images/qlogo.png" alt="logo"><br><br>
+    {{#each artists}}
 
-<h3><a href="/artists/show/{{this.id}}">{{this.name}}</a><br></h3>
-{{/each}}
-<br>
-<button onclick="window.location.href='mailto:tcapo@pratt.edu';" class="btn btn-primary">
-  Request A New Artist
-</button>
-<br>
-</div></body>
+    <h3><a href="/artists/show/{{this.id}}">{{this.name}}</a><br></h3>
+    {{/each}}
+    <br>
+    <button onclick="window.location.href='mailto:tcapo@pratt.edu';" class="btn btn-primary">Request A New Artist</button>
+    <br>
+  </div>
+</body>
